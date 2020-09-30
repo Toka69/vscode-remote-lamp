@@ -58,6 +58,7 @@ RUN sed -ri -e "s!/var/www/!${APACHE_DOCUMENT_ROOT}!g" /etc/apache2/apache2.conf
 #Install MariaDB
 RUN apt-get update \
     && apt-get install mariadb-server -y \
+    && docker-php-ext-install pdo_mysql \
     && docker-php-ext-install mysqli
 
 #Install composer
